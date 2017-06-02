@@ -1,0 +1,17 @@
+a{
+  color:blue;
+}
+#game{
+  position:absolute;
+  top:5px;
+}
+#leaderboard{
+  position:absolute;
+  top:5px;
+  left:75px;
+}
+#logout{
+  position:absolute;
+  top:5px;
+  left:175px;
+}

@@ -1,0 +1,9 @@
+form{
+  border:2px solid blue;
+  padding:10px;
+  display:table;
+}
+label{
+  display:table;
+  margin-bottom:10px;
+}

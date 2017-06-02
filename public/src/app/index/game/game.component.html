@@ -1,0 +1,47 @@
+<button id="game">Game</button>
+<div *ngIf="user">
+  <h2>Welcome {{user.username}} ({{user.firstname}})!</h2>
+
+  <h4 *ngIf="user.gold<100">Your Rank: Rock</h4>
+  <h4 *ngIf="user.gold>=100&&user.gold<200">Your Rank: Snail</h4>
+  <h4 *ngIf="user.gold>=200&&user.gold<300">Your Rank: Puppy</h4>
+  <h4 *ngIf="user.gold>=300&&user.gold<400">Your Rank: Monkey</h4>
+  <h4 *ngIf="user.gold>=400&&user.gold<500">Your Rank: Eagle</h4>
+  <h4 *ngIf="user.gold>=500&&user.gold<600">Your Rank: Dragon</h4>
+  <h4 *ngIf="user.gold>=600">Your Rank: Ninja</h4>
+
+  <div *ngIf="user.gold<100">Obtain 100 gold to promote to Snail</div>
+  <div *ngIf="user.gold>=100&&user.gold<200">Obtain 200 gold to promote to Puppy</div>
+  <div *ngIf="user.gold>=200&&user.gold<300">Obtain 300 gold to promote to Monkey</div>
+  <div *ngIf="user.gold>=300&&user.gold<400">Obtain 400 gold to promote to Eagle</div>
+  <div *ngIf="user.gold>=400&&user.gold<500">Obtain 500 gold to promote to Dragon</div>
+  <div *ngIf="user.gold>=500&&user.gold<600">Obtain 600 gold to promote to Ninja</div>
+  <div *ngIf="user.gold>=600&&user.gold<1000">Obtain 1000 gold for a special message ;)</div>
+  <div *ngIf="user.gold>=1000">{{user.firstname}}, you are FEARFULLY and WONDERFULLY made <3</div>
+  <button *ngIf="user.total_clicks%3==0" id="button" (click)="buttonClicked(user)" (click)="ninjaSound()">Click</button>
+  <button *ngIf="user.total_clicks%3==1" id="button" (click)="buttonClicked(user)" (click)="pickSound()">Click</button>
+  <button *ngIf="user.total_clicks%3==2" id="button" (click)="buttonClicked(user)">Click</button>
+</div>
+<div *ngIf="user" id="click">
+  <h4>Total clicks: {{user.total_clicks}}</h4>
+  <h3 id="gold">Gold: {{user.gold}}</h3>
+  <img class="image" *ngIf="user.total_clicks%3==0" src="/ninja1.png">
+  <img class="image" *ngIf="user.total_clicks%3==1" src="/ninja2.png">
+  <img class="image" *ngIf="user.total_clicks%3==2" src="/ninja3.png">
+</div>
+<div *ngIf="user">
+  <p>Current pickaxe: {{user.pickaxe}}</p>
+  <button *ngIf="user.pickaxe=='bronze'" (click)="silver()">Spend 250 gold to upgrade to silver pickaxe (+2 gold per click)</button>
+  <button *ngIf="user.pickaxe=='silver'" (click)="gold()">Spend 500 gold to upgrade to gold pickaxe (+3 gold per click)</button>
+  <h3 *ngIf="user.pickaxe=='gold' && user.gold>=1000">This is it! You basically beat the game! (until I decide to develope this project, which probably won't be anytime soon)</h3>
+</div>
+
+
+<!-- Work on...
+<ul>
+  <li>sound</li>
+  <li>background image</li>
+  <li>more interaction</li>
+  <li>reset click counter function</li>
+  <li>user face upload</li>
+</ul> -->
